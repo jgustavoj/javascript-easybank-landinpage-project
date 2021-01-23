@@ -1,0 +1,42 @@
+.hero{
+
+    &__image{
+        position: relative; //parent elem must be relative when you position an absolute child if not the image will "fly away"
+        background-image: url("/images/bg-intro-mobile.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        min-height: 17.5rem;
+
+
+        &::before{
+            border: 1px solid magenta; //for testing 
+            content: ""; //this is required when using a ::before or ::after sudo elem if not it wont show up on the page
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-image: url("/images/image-mockups.png");
+            background-size: 93%; //percentages can also be used instead of cover 
+            background-repeat: no-repeat;
+            background-position: center bottom; //bottom moves the image up on the vertical 
+        }
+    }
+
+    &__text{
+        text-align: center;
+        h1{
+            font-weight: 300;
+            font-size: 2.31rem;
+            line-height: 1.15; //Headings 
+            color: $darkBlue;
+            margin-bottom: 1.5rem;
+            
+        }
+        p{
+            line-height: 1.5;
+            margin-bottom: 2.25rem;
+
+        }
+
+    }
+}
