@@ -1,6 +1,18 @@
 .hero{
+    background-color: $veryLightGray;
 
+    .container{
+        @include breakpoint-up(large){ //lets style for desktop and up have a diff style
+            display: flex;
+            align-items: center;
+           
+        }  
+    
+    }
+
+    
     &__image{
+        
         position: relative; //parent elem must be relative when you position an absolute child if not the image will "fly away"
         background-image: url("/images/bg-intro-mobile.svg");
         background-size: cover;
@@ -8,9 +20,42 @@
         background-position: center center;
         min-height: 17.5rem;
 
+        @include breakpoint-up(medium){
+            min-height: 25rem;
+            background-position: center 60%;
+
+
+        }
+
+        @include breakpoint-up(large){ //shows 2 columns hero image when on desktop
+            flex: 3; //makes the child flex element be the same height accross both flex child elm
+            order: 2; //makes the image be 2nd on the column order - to the right in this case
+            min-height: 41rem;
+            background-image: none;
+            //background-image: url("/images/bg-intro-desktop.svg");
+            //background-position: left center;
+        }
 
         &::before{
-            border: 1px solid magenta; //for testing 
+
+     
+            @include breakpoint-up(large){
+                content: ""; //this is required when using a ::before or ::after sudo elem if not it wont show up on the page
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-image: url("/images/bg-intro-desktop.svg");
+                //background-size: 93%; //percentages can also be used instead of cover 
+                background-repeat: no-repeat;
+                background-position: center bottom; //bottom moves the image up on the vertical 
+                width: 150%;
+                background-size: 130%;
+                background-position: 0% 83%;
+            }
+
+        }
+        
+        &::after{
             content: ""; //this is required when using a ::before or ::after sudo elem if not it wont show up on the page
             position: absolute;
             height: 100%;
@@ -19,17 +64,48 @@
             background-size: 93%; //percentages can also be used instead of cover 
             background-repeat: no-repeat;
             background-position: center bottom; //bottom moves the image up on the vertical 
+            
+
+            @include breakpoint-up(medium){
+                background-size: 52%;
+            }
+
+            @include breakpoint-up(large){ //issues with x axis on phone size 
+                width: 120%;
+                height: 122%;
+                background-size: 94%;
+                background-position: center 150%;
+                left: 22%;
+                
+            }
+       
         }
+
+
     }
 
     &__text{
-        text-align: center;
+        text-align: center; //mobile-fitst approach 
+
+        @include breakpoint-up(large){ //shows 2 columns hero image when on desktop
+            flex: 2; //available space from the parent and it distributes that space to each child -  think of ratio
+            order: 1; //makes the image be 1st on the column order - to the left in this case
+            text-align: left;//add-on from mobile to make it align left 
+
+
+
+        } 
+
         h1{
             font-weight: 300;
             font-size: 2.31rem;
             line-height: 1.15; //Headings 
             color: $darkBlue;
             margin-bottom: 1.5rem;
+
+            @include breakpoint-up(large){
+                font-size: $font-xlg;
+            }
             
         }
         p{
