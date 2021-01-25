@@ -22,7 +22,7 @@
 
         @include breakpoint-up(medium){
             min-height: 25rem;
-            background-position: center 60%;
+            background-position: center 70%;
 
 
         }
@@ -32,18 +32,16 @@
             order: 2; //makes the image be 2nd on the column order - to the right in this case
             min-height: 41rem;
             background-image: none;
-            //background-image: url("/images/bg-intro-desktop.svg");
-            //background-position: left center;
+       
         }
 
         &::before{
-
      
             @include breakpoint-up(large){
                 content: ""; //this is required when using a ::before or ::after sudo elem if not it wont show up on the page
                 position: absolute;
                 height: 100%;
-                width: 100%;
+                //width: 100%;
                 background-image: url("/images/bg-intro-desktop.svg");
                 //background-size: 93%; //percentages can also be used instead of cover 
                 background-repeat: no-repeat;
@@ -76,6 +74,7 @@
                 background-size: 94%;
                 background-position: center 150%;
                 left: 22%;
+
                 
             }
        

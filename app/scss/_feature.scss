@@ -1,0 +1,36 @@
+.feature {
+   display: flex;
+
+
+    &___grid{
+        
+        @include breakpoint-up(large){
+            display: flex;
+            //align-items: flex-start;
+            
+        }
+
+    }
+
+    &__item{
+
+        @include breakpoint-up(large){
+           flex: 1;
+        }   
+    }
+
+    &__icon{
+
+
+    }
+
+    &__title{
+
+
+    }
+
+    &__description{
+
+
+    }
+}
