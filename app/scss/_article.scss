@@ -1,0 +1,96 @@
+.articles{
+    background-color: $veryLightGray;
+
+
+}
+
+.article{
+
+
+
+
+    &__content{
+
+
+    }
+
+    &__grid{ //using grid approach 
+        display: grid;
+
+        //grid-template-columns: repeat(auto-fit, minmax(14.275rem, 1fr)); //this approach works similar where it will set a min width for the item and a max of up to the full width and it will 
+        //auto-fit them within the range provider in the parameter
+
+        grid-template-columns: 1fr; //fraction unit/will take available space
+        gap: 1.875rem;
+
+
+        @include breakpoint-up(medium){
+
+            grid-template-columns: repeat(2, 1fr); //first parameter is how many columns are going to be used and second will determine that they both will be the same width
+
+        }
+
+        @include breakpoint-up(large){
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__item{
+        background-color: $White;
+        border-radius: 0.3125rem;
+        overflow: hidden; //makes sure the rounded corners will show up
+        box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+                //horizontal/vertical/spread 
+        transition: all 150ms ease-in-out;
+       
+
+        &:hover{
+            transform: scale(1.05);
+        
+        }
+    }
+
+    &__image{
+        height: 12.5rem;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+
+    }
+
+    &__text{
+
+        padding: 1.875rem 1.875rem 2.5rem 1.875rem;
+        color: $grayishBlue;
+
+        @include breakpoint-up(medium){
+            padding: 1.875rem 1.5625rem;
+        }
+
+
+    }
+
+    &__author{
+
+        font-size: 0.625rem;
+        margin-bottom: 0.75rem;
+
+    }
+
+    &__title{
+        font-size: 1.0625rem;
+        line-height: 1.2;
+        color: $darkBlue;
+        margin-bottom: 0.5rem;
+
+
+
+    }
+
+    &__description{
+
+        font-size: 0.8125rem;
+
+
+    }
+}
