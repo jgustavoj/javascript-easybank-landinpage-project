@@ -4,16 +4,22 @@
     &__grid{
         
         
-        @include breakpoint-up(large){
+        @include breakpoint-up(medium){ //is going to affect tablets and up
             display: flex;
-            //align-items: flex-start;
             
         }
 
+     
     }
 
     &__item{
-
+        border: 1px solid red;
+        padding: 0.97375rem;
+        
+        @include breakpoint-up(medium){
+         
+            
+        }
         @include breakpoint-up(large){
            flex: 1;
         }   
