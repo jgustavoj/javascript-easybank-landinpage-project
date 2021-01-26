@@ -1,4 +1,10 @@
 .feature {
+    background-color: $lightGrayishBlue;
+    text-align: center;//aligns content in div - center
+
+    @include breakpoint-up(medium){
+        text-align: left; //changes tablet and up
+    }
     
   
     &__intro{
@@ -23,7 +29,7 @@
     }
 
     &__item{
-        border: 1px solid red; //for testing only
+        //border: 1px solid red; //for testing only
         padding: 0.97375rem;
         
         @include breakpoint-up(medium){
@@ -37,16 +43,33 @@
     }
 
     &__icon{
+        margin-bottom: 1.875rem;
 
+        @include breakpoint-up(large){
+            margin-bottom: 2.75rem;
+        }
 
     }
 
     &__title{
+        font-size: 1.25rem;
+        font-weight: 300;
+        line-height: 1.15; //Headings 
+        color: $darkBlue;
+        margin-bottom: 1rem;
+
+
+        @include breakpoint-up(large){
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
 
 
     }
 
     &__description{
+        font-size: 0.875rem;
+        line-height: 1.5rem;
 
 
     }
