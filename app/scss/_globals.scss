@@ -109,7 +109,7 @@ a, a:visited, a:hover{
     }
     &--pb{
         padding-bottom: 4.375rem;
-        
+
         @include breakpoint-up(large){
             padding-bottom: 6rem;
         }
