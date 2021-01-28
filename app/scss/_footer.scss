@@ -5,29 +5,74 @@
     padding: 2.5rem;
     text-align: center;
 
+    @include breakpoint-up(large){
+        display: grid;
+        grid-template-columns: repeat(3, 1fr) 2fr; // First 3 columns are 1fr and last column would be 2ft - twice the size of the the first (sigle) fr
+        grid-template-rows: repeat(2, 1fr); //grids would be given the same space 
+        grid-template-areas:
+        "logo links1 links2 cta" //write the name of the area where you want that grid to be 
+        "social links1 links2 cta";//using the same name for 2 cells, tells the browser that area will take up 2 cells 
+        justify-items: start;
+    }
+
+
     a{
         color: $White;
     }
 
     &__logo{
+        display: inline-block;
+        margin-bottom: 1.875rem;
+
+        @include breakpoint-up(large){
+            grid-area: logo; //does not need to be in a string lije in grid-template-areas
+        }
 
     }
 
     &__social{
+        margin-bottom: 1.875rem;
 
+        @include breakpoint-up(large){
+            grid-area: social; //does not need to be in a string lije in grid-template-areas
+        }
+        a:not(:last-child){ //doesnt apply syling for the last child of anchors
+            display: inline-block;
+            margin: 1rem;
+    
+        }
 
     }
 
     &__links{
-        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include breakpoint-up(large){
+            align-items: start;
+        }
+       
 
         &.col1{
+
+            @include breakpoint-up(large){
+                grid-area: links1; //does not need to be in a string lije in grid-template-areas
+            }
 
 
         }
 
+        a{
+            line-height: 2.25;
+        }
+
         &.col2{
 
+            @include breakpoint-up(large){
+                grid-area: links2; //does not need to be in a string lije in grid-template-areas
+            }
+            margin-bottom: 1.875rem;
 
         }
 
@@ -35,8 +80,15 @@
 
     &__cta{
 
-        a.button{
+        @include breakpoint-up(large){
+            grid-area: cta; //does not need to be in a string lije in grid-template-areas
+            text-align: right;
+            justify-self: end;
+        
+        }
 
+        a.button{
+            margin-bottom: 1.875rem;
 
         }
     }
